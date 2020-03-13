@@ -1,5 +1,7 @@
 pipeline {
-   agent any	
+	agent {
+	label 'cilium'
+	}	
    environment {
         PROJECT_ID = 'extreme-torch-268218'
         CLUSTER_NAME = 'cluster-for-cilium'
