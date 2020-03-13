@@ -15,5 +15,10 @@ spec:
     - ports:
       - port: "2222"
         protocol: TCP
-      
+      rules:
+        http:
+       	- method: "GET"
+          path: "/teams"
+        - method: "GET"
+          path: "/teams/.{4}"
 
