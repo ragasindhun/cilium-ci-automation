@@ -1,18 +1,18 @@
 pipeline {
-	agent {
-	label 'cilium'
-	}	
+   agent { 
+        label 'cilium'
+   }
    environment {
         PROJECT_ID = 'extreme-torch-268218'
         CLUSTER_NAME = 'cluster-for-cilium'
         LOCATION = 'us-central1-c'
-        CREDENTIALS_ID = 'jenkins-deployer-credentials'
+        CREDENTIALS_ID = 'gke'
    }
    stages {
       stage("Install Kubectl on Jenkins") {
             steps {
                 sh 'curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl'
-		sh 'chmod +x ./kubectl && sudo mv kubectl /usr/local/sbin'
+		sh 'chmod +x ./kubectl && mv kubectl /usr/local/sbin'
 		sh 'kubectl version --client'
             }
        } 
